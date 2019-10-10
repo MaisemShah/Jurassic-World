@@ -1,0 +1,42 @@
+﻿@page
+@model Jurasssic_World.Pages.Exhib.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibits[0].EN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibits[0].EL)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Exhibits) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EL)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.EID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.EID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.EID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
